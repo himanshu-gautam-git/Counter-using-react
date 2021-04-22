@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './index.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App=()=>
+{
+  const [val,newVal]=useState(0);
+  const inc=()=>
+  {
+    newVal(val+1);
+  };
+  const dec = ()=>
+  {
+    if(val>0)
+    {
+     newVal(val-1);
+    }
+    else
+      alert("Sorry, zero limit reached");
+  };
+   return (
+     <>
+       <div className="main_div">
+         <div className="center_div">
+           <div className="heading_div">{val}</div>
+           <button onClick={dec}>-</button>
+           <button onClick={inc}>+</button>
+         </div>
+       </div>
+     </>
+   );
+};
 
 export default App;
